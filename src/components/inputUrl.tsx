@@ -1,6 +1,5 @@
 import React, { CSSProperties, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addResource } from "../actions/ResourceListActions";
 
 type InputProps = {
     isShow : boolean,
@@ -21,7 +20,6 @@ const InputUrl: React.FC<InputProps> = (props) => {
         if(e.keyCode === 13){
             // http, https 형식 체크 후 저장
             if(url.slice(0,8).includes("http://") || url.slice(0,8).includes("https://")){
-                dispatch(addResource("url", url));
             }else{
                 alert("URL 형식이 맞지 않습니다. ex) http://, https://");
             }

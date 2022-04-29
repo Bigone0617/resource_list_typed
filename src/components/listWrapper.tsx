@@ -1,9 +1,7 @@
 import { CSSProperties} from "react";
-import { useSelector } from "react-redux";
-import { RootReducerType } from "../Store";
-import { List} from "../actions/ResourceListTypes";
-
-import ResourceCard from "./resourceCard";
+import {  useSelector } from "react-redux";
+import { State } from "../state";
+// import ResourceCard from "./resourceCard";
 
 const listWrapperStyle:CSSProperties = {
     backgroundColor : "#F7F7F7",
@@ -13,14 +11,12 @@ const listWrapperStyle:CSSProperties = {
 }
 
 function ListWrapper () {
-    const resourceReducer = useSelector((state:RootReducerType ) => state.ResourceReducer);
-    let list = resourceReducer.list;
 
+    const list = useSelector((state: State) => state.resource);
+    console.log(list);
     return (
         <div className="list_wrapper" style={listWrapperStyle}>
-            {list?.map((data:List) => (
-                <ResourceCard data_type={data.data_type} value={data.value}/>
-            ))}
+            a
         </div>
     );
 };
